@@ -10,5 +10,6 @@ class AvatarExampleCommand(SlashCommandBuilder):
             callback=self.callback 
         )
         
+    # Você pode adicionar paramêtros/opções ao comando dessa forma
     async def callback(self, interaction, user:User):
         await interaction.response.send_message(user.display_avatar)

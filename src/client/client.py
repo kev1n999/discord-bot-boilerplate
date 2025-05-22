@@ -9,6 +9,7 @@ from importlib import import_module
 
 load_dotenv()
 
+# Classe para se conectar ao client
 class DiscordClient(discord.Client): 
     def __init__(self, token, intents=None): 
         self.token = token 
@@ -59,5 +60,6 @@ class DiscordClient(discord.Client):
         
     def run_bot(self):
         self.run(self.token)
-    
+
+# Principal instância do client
 client = DiscordClient(token=os.getenv("BOT_TOKEN"))

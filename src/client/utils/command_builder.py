@@ -1,8 +1,7 @@
-import os 
 import logging
-import discord 
 from discord import app_commands 
 
+# Classe para a criação de novos comandos
 class SlashCommandBuilder(app_commands.Command):
     def __init__(self, app: app_commands.CommandTree, *, name: str=None, description:str=None, callback: callable=None):
         self.app = app 
