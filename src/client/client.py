@@ -24,6 +24,9 @@ class DiscordClient(discord.Client):
     async def setup_hook(self):
         self.load_commands()
         await self.tree.sync()
+        
+    def run_bot(self):
+        self.run(self.token)
     
     def load_commands(self):
         root = Path("src/commands")
@@ -54,12 +57,6 @@ class DiscordClient(discord.Client):
                             obj(self.tree) 
                         except Exception as err:
                             logging.exception(f"Falha ao registrar {obj.__name__}: {err}")
-                            
-    async def on_ready(self):
-        print("Bot online!")
-        
-    def run_bot(self):
-        self.run(self.token)
 
-# Principal instância do client
+# Cria a instância do bot
 client = DiscordClient(token=os.getenv("BOT_TOKEN"))
