@@ -1,7 +1,5 @@
 import discord 
 from src.client.utils.command_builder import SlashCommandBuilder
-from src.client.utils.modal_builder import InputTextBuilder, ModalBuilder
-from src.client.utils.component_builder import ComponentBuilder
 
 # Simple example for creating commands for the bot
 class ExampleCommandPing(SlashCommandBuilder):
