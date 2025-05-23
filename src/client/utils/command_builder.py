@@ -3,15 +3,14 @@ from discord import app_commands
 
 # Classe para a criação de novos comandos
 class SlashCommandBuilder(app_commands.Command):
-    def __init__(self, app: app_commands.CommandTree, *, name: str=None, description:str=None, callback: callable=None):
+    def __init__(self, app: app_commands.CommandTree, *, name: str=None, description:str=None):
         self.app = app 
         
-        if name is None:
-            print("Err: name command is not defined!")
+        callback = getattr(self, "callback", None)
         
-        if callback is None:
-            print("Err: command callback is not defined!")
-            
+        if not callable(callback):
+            raise NotImplementedError("Erro: Você deve implementar um método callback(async def callback(self, interaction))...")
+        
         super().__init__(
             name=name,
             description=description,
