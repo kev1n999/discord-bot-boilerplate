@@ -1,23 +1,16 @@
 import discord 
-from src.client.utils.command_builder import SlashCommandBuilder 
-from src.client.utils.button_builder import ButtonBuilder
-from src.client.utils.component_builder import ComponentBuilder
+from src.client.utils.command_builder import SlashCommandBuilder
 
-class PingCommand(SlashCommandBuilder):
+# Simple example for creating commands for the bot
+class ExampleCommandPing(SlashCommandBuilder):
     def __init__(self, tree):
         super().__init__(
-            app=tree,
-            name="ping",
-            description="Responde com pong!",
-            callback=self.callback 
+            app=tree, # Default
+            name="ping", # Command name
+            description="Reply with pong!", # Command description
+            callback=self.command_callback # Command callback
         )
         
-    async def callback(self, interaction: discord.Interaction):
-        button = ButtonBuilder(
-            label="oi",
-        )
-        
-        newbutton = ButtonBuilder("seloko", color=discord.ButtonStyle.green)
-        
-        component = ComponentBuilder([button, newbutton])
-        await interaction.response.send_message(view=component)
+    # Command callback
+    async def command_callback(self, interaction: discord.Interaction):
+        await interaction.response.send_message(content="Pong!")
