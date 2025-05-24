@@ -25,7 +25,7 @@ class InputTextBuilder(discord.ui.TextInput):
             "short": discord.TextStyle.short ,
             "long": discord.TextStyle.long,
             "paragraph": discord.TextStyle.paragraph
-        }
+        } 
         
         if label is None:
             raise TypeError("Erro: Label não informado na criação do InputText!")

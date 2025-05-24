@@ -1,4 +1,3 @@
-import logging 
 import discord 
 from typing import Union, List, Coroutine
 
