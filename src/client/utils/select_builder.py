@@ -8,7 +8,7 @@ class SelectOptionBuilder(discord.SelectOption):
             label=label,
             description=description,
             value=value,
-            emoji=value
+            emoji=emoji
         )
         
 class SelectMenuBuilder(discord.ui.Select):
