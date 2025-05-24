@@ -1,4 +1,5 @@
 import discord 
+from typing import Coroutine 
 
 class ButtonParams:
     def __init__(self, label: str=None, color: str | discord.ButtonStyle=None, custom_id: str=None, persistent: bool=None):
@@ -8,7 +9,9 @@ class ButtonParams:
         self.persistent = persistent
 
 class ButtonBuilder(discord.ui.Button):
-    def __init__(self, label: str=None, color: str | discord.ButtonStyle=None, custom_id: str=None):
+    def __init__(self, label: str=None, color: str | discord.ButtonStyle=None, custom_id: str=None, *, button_listener: Coroutine):
+        self.button_listener = button_listener
+        
         if label is None:
             raise TypeError("Você não passou nenhuma label para o botão!")
         if color is None:
@@ -19,3 +22,6 @@ class ButtonBuilder(discord.ui.Button):
             style=color,
             custom_id=custom_id
         )
+        
+    async def callback(self, interaction):
+        await self.button_listener(interaction)
