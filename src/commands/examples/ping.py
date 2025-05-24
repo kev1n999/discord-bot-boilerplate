@@ -1,7 +1,7 @@
 import discord 
-from src.client.utils.command_builder import SlashCommandBuilder
-from src.client.utils.select_builder import SelectMenuBuilder, SelectOptionBuilder
-from src.client.utils.component_builder import ComponentBuilder
+from src.base.client.utils.command_builder import SlashCommandBuilder
+from src.base.client.utils.select_builder import SelectMenuBuilder, SelectOptionBuilder
+from src.base.client.utils.component_builder import ComponentBuilder
 
 # Simple example for creating commands for the bot
 class ExampleCommandPing(SlashCommandBuilder):
