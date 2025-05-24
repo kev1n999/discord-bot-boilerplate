@@ -13,7 +13,7 @@ class ExampleCommandPing(SlashCommandBuilder):
         
     # Command callback
     async def callback(self, interaction: discord.Interaction):
-        i = InputTextBuilder(label="oi", style="long", placeholder="test placeholder", custom_id="a")
+        i = InputTextBuilder(label="oi", style="lonsg", placeholder="test placeholder", custom_id="a")
         
         modal = ModalBuilder(title="modal1", items=[i], custom_id="a", modal_listener=self.modal_listener)
         
