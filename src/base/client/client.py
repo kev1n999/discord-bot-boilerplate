@@ -11,6 +11,21 @@ load_dotenv()
 
 # Classe para se conectar ao client
 class DiscordClient(discord.Client): 
+    """
+    Cliente principal do bot  que gerencia a conexão, sincronização de comandos e carregamento automático.
+
+    Essa classe estende `discord.Client` e configura um `app_commands.CommandTree` para lidar com comandos de barra (slash commands),
+    buscando automaticamente comandos em subpastas de `src/commands/`.
+
+    Args:
+        token (str): Token de autenticação do bot.
+        intents (discord.Intents, optional): Intenções do gateway do Discord. Padrão é `discord.Intents.all()`.
+
+    Attributes:
+        token (str): Token do bot.
+        client_intents (discord.Intents): Intents configuradas.
+        tree (app_commands.CommandTree): Árvore de comandos usada para registrar e sincronizar os comandos de barra.
+    """
     def __init__(self, token, intents=None): 
         self.token = token 
         self.client_intents = intents  
