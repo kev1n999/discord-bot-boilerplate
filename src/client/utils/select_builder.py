@@ -12,11 +12,13 @@ class SelectOptionBuilder(discord.SelectOption):
         )
         
 class SelectMenuBuilder(discord.ui.Select):
-    def __init__(self, placeholder: str=None, options: Union[List[SelectOptionBuilder], SelectOptionBuilder]=None):
+    def __init__(self, placeholder: str=None, options: Union[List[SelectOptionBuilder], SelectOptionBuilder]=None, *, select_listener: Coroutine):
+        self.select_listener = select_listener 
+        
         super().__init__(
             placeholder=placeholder,
             options=options
         )
         
     async def callback(self, interaction: discord.Interaction):
-        await interaction.response.send_message("a")
+        await self.select_listener(interaction, select=self)

@@ -18,6 +18,10 @@ class ExampleCommandPing(SlashCommandBuilder):
             SelectOptionBuilder(label="oi", description="oi2", value="a"),
             SelectOptionBuilder(label="ola", description="ola2", value="b")
         ]
-        select = SelectMenuBuilder(placeholder="selecione alguma opc", options=options)
+        select = SelectMenuBuilder(placeholder="selecione alguma opc", options=options, select_listener=self.select_listener)
         
         await interaction.response.send_message(view=ComponentBuilder(select))
+    
+    async def select_listener(self, interaction: discord.Interaction, select: discord.ui.Select):
+        if select.values[0] == "a":
+            await interaction.response.send_message(ephemeral=True, content="Você selecionou a opção a meu mano!")
