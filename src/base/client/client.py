@@ -3,7 +3,7 @@ import discord
 import logging 
 from discord import app_commands 
 from dotenv import load_dotenv 
-from src.base.client.utils.command_builder import SlashCommandBuilder 
+from src.base.builders.command_builder import SlashCommandBuilder 
 from pathlib import Path 
 from importlib import import_module
 
