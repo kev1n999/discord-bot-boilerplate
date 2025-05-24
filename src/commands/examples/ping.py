@@ -19,7 +19,4 @@ class ExampleCommandPing(SlashCommandBuilder):
         ]
         select = SelectMenuBuilder(placeholder="selecione alguma opc", options=options)
         
-        await interaction.response.send_message(view=discord.ui.view(select))
-         
-    async def modal_listener(self, interaction):
-        await interaction.response.send_message("pong")
+        await interaction.response.send_message(view=discord.ui.View(select))

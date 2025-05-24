@@ -1,8 +1,8 @@
 import discord 
-from typing import List 
+from typing import List, Union
 
 class ComponentBuilder(discord.ui.View):
-    def __init__(self, component: List[discord.Component] | discord.Component=None, persistent: bool=None):
+    def __init__(self, component: Union[List[discord.Component], discord.Component], persistent: bool=None):
         super().__init__(timeout=None if persistent else 180)
         
         if component is None:

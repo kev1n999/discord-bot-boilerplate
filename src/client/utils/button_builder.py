@@ -1,13 +1,6 @@
 import discord 
 from typing import Coroutine 
 
-class ButtonParams:
-    def __init__(self, label: str=None, color: str | discord.ButtonStyle=None, custom_id: str=None, persistent: bool=None):
-        self.ButtonLabel = label 
-        self.ButtonColor = color 
-        self.ButtonCustomId = custom_id
-        self.persistent = persistent
-
 class ButtonBuilder(discord.ui.Button):
     def __init__(self, label: str=None, color: str | discord.ButtonStyle=None, custom_id: str=None, *, button_listener: Coroutine):
         self.button_listener = button_listener
