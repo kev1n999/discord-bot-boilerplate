@@ -35,7 +35,7 @@ class ModalBuilder(discord.ui.Modal):
         
         if items is None:
             raise TypeError("Erro: Nenhum item foi passado!")
-        
+            
         super().__init__(
             title=title,
             timeout=None if persistent else 180,
@@ -53,4 +53,8 @@ class ModalBuilder(discord.ui.Modal):
             self.add_item(items)
     
     async def on_submit(self, interaction: discord.Interaction):
+        if not self.modal_listener:
+            logging.error("[⚠] Você não passou nenhuma função para o paramêtro 'modal_listener'!")
+            return 
+        
         await self.modal_listener(interaction)
