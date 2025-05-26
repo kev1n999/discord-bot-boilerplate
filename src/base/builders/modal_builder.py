@@ -22,7 +22,7 @@ class InputTextBuilder(discord.ui.TextInput):
     
     def __init__(
         self, 
-        label: str=None, 
+        label: str, 
         placeholder: str=None, 
         style:str | discord.TextStyle=None, 
         custom_id: str | None=None, 
@@ -34,7 +34,7 @@ class InputTextBuilder(discord.ui.TextInput):
             "paragraph": discord.TextStyle.paragraph
         } 
         
-        if label is None:
+        if not label:
             raise TypeError("Erro: Label não informado na criação do InputText!")
 
         if style is None:
