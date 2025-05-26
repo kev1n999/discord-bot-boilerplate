@@ -18,8 +18,8 @@ class DiscordClient(discord.Client):
     buscando automaticamente comandos em subpastas de `src/commands/`.
 
     Args:
-        token (str): Token de autenticação do bot.
-        intents (discord.Intents, optional): Intenções do gateway do Discord. Padrão é `discord.Intents.all()`.
+        token (str): Token do bot.
+        intents (discord.Intents, optional): Intenções do gateway do Discord. Padrão é `discord.Intents.all()`(Todas as intents ativadas).
 
     Attributes:
         token (str): Token do bot.
