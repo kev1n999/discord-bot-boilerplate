@@ -20,7 +20,14 @@ class InputTextBuilder(discord.ui.TextInput):
         logging.error: Se o estilo informado não for reconhecido.
     """
     
-    def __init__(self, label: str=None, placeholder: str=None, style:str | discord.TextStyle=None, custom_id: str | None=None, required: bool=None):
+    def __init__(
+        self, 
+        label: str=None, 
+        placeholder: str=None, 
+        style:str | discord.TextStyle=None, 
+        custom_id: str | None=None, 
+        required: bool=None
+    ):
         self.text_styles = {
             "short": discord.TextStyle.short ,
             "long": discord.TextStyle.long,
@@ -75,7 +82,15 @@ class ModalBuilder(discord.ui.Modal):
         await interaction.response.send_modal(modal)
     """
     
-    def __init__(self, title: str=None, custom_id: str=None, persistent: bool=None, *, items: Union[List[InputTextBuilder], InputTextBuilder]=None, modal_listener: Coroutine):
+    def __init__(
+        self, 
+        title: str=None, 
+        custom_id: str=None, 
+        persistent: bool=None, 
+        *, 
+        items: Union[List[InputTextBuilder], InputTextBuilder]=None, 
+        modal_listener: Coroutine
+    ):
         self.modal_listener = modal_listener
         
         if items is None:

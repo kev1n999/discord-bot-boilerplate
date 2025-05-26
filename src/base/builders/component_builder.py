@@ -24,7 +24,11 @@ class ComponentBuilder(discord.ui.View):
         await interaction.response.send_message("Clique no botão!", view=view)
     """
     
-    def __init__(self, component: Union[List[discord.Component], discord.Component], persistent: bool=None):
+    def __init__(
+        self, 
+        component: Union[List[discord.Component], discord.Component], 
+        persistent: bool=None
+    ):
         super().__init__(timeout=None if persistent else 180)
         
         if component is None:
@@ -32,7 +36,7 @@ class ComponentBuilder(discord.ui.View):
         
         if isinstance(component, list):
             for c in component:
-                if isinstance(c, discord.ui.Modal) or isinstance(c, discord.ui.Select) or isinstance(c, discord.ui.TextInput):
+                if isinstance(c, discord.Component):
                     raise TypeError(f"Erro: Não é possível adicionar uma lista de componentes do tipo {type(c)}!")
                 self.add_item(c)
         else:

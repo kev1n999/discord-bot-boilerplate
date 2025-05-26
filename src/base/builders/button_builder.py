@@ -25,7 +25,14 @@ class ButtonBuilder(discord.ui.Button):
         button = ButtonBuilder(label="Clique aqui", color="primary", button_listener=on_click)
     """
     
-    def __init__(self, label: str=None, color: str | discord.ButtonStyle=None, custom_id: str=None, *, button_listener: Coroutine):
+    def __init__(
+        self, 
+        label: str=None, 
+        color: str | discord.ButtonStyle=None, 
+        custom_id: str=None,
+        *, 
+        button_listener: Coroutine
+    ):
         self.button_listener = button_listener
         self.colors = {
             "blurple": discord.ButtonStyle.blurple,
@@ -55,4 +62,4 @@ class ButtonBuilder(discord.ui.Button):
         )
         
     async def callback(self, interaction):
-        await self.button_listener(interaction)
+        await self.button_listener(interaction, self)

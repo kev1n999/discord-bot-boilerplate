@@ -14,7 +14,13 @@ class SelectOptionBuilder(discord.SelectOption):
         value (str): Valor interno da opção (Usado para identificar uma opção específica futuramente);
         emoji (discord.PartialEmoji): Emoji opcional a ser adicionado ao lado do label.
     """
-    def __init__(self, label: str=None, description: str=None, value: str=None, emoji: discord.PartialEmoji=None):
+    def __init__(
+        self, 
+        label: str=None, 
+        description: str=None, 
+        value: str=None, 
+        emoji: discord.PartialEmoji=None
+    ):
         super().__init__(
             label=label,
             description=description,
@@ -44,7 +50,13 @@ class SelectMenuBuilder(discord.ui.Select):
             select_listener=listener
         )
     """
-    def __init__(self, placeholder: str=None, options: Union[List[SelectOptionBuilder], SelectOptionBuilder]=None, *, select_listener: Coroutine):
+    def __init__(
+        self, 
+        placeholder: str=None, 
+        options: Union[List[SelectOptionBuilder], SelectOptionBuilder]=None, 
+        *, 
+        select_listener: Coroutine
+    ):
         self.select_listener = select_listener 
         
         super().__init__(

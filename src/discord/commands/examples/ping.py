@@ -1,7 +1,7 @@
 import discord 
 from src.base.builders.command_builder import SlashCommandBuilder
 from src.base.builders.select_builder import SelectMenuBuilder, SelectOptionBuilder
-from src.base.builders.component_builder import ComponentBuilder
+from src.discord.components.modals.example_modal import modalSum
 
 # Simple example for creating commands for the bot
 class ExampleCommandPing(SlashCommandBuilder):
@@ -14,10 +14,4 @@ class ExampleCommandPing(SlashCommandBuilder):
         
     # Command callback
     async def callback(self, interaction: discord.Interaction):
-        options = [
-            SelectOptionBuilder(label="oi", description="oi2", value="a"),
-            SelectOptionBuilder(label="ola", description="ola2", value="b")
-        ]
-        select = SelectMenuBuilder(placeholder="selecione alguma opc", options=options, select_listener=self.select_listener)
-        
-        await interaction.response.send_message(view=ComponentBuilder(select))
+        await interaction.response.send_modal(modalSum)

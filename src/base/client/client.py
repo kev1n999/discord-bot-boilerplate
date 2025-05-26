@@ -44,7 +44,7 @@ class DiscordClient(discord.Client):
         self.run(self.token)
     
     def load_commands(self):
-        root = Path("src/commands")
+        root = Path("src/discord/commands")
 
         for folder_path in root.iterdir():
             if not folder_path.is_dir():
@@ -54,7 +54,7 @@ class DiscordClient(discord.Client):
                 if file_path.name == "__init__.py":
                     continue
 
-                module_name = f"src.commands.{folder_path.name}.{file_path.stem}"
+                module_name = f"src.discord.commands.{folder_path.name}.{file_path.stem}"
 
                 try:
                     module = import_module(module_name)
@@ -72,6 +72,6 @@ class DiscordClient(discord.Client):
                             obj(self.tree) 
                         except Exception as err:
                             logging.exception(f"Falha ao registrar {obj.__name__}: {err}")
-
+            
 # Cria a instância do bot
 client = DiscordClient(token=os.getenv("BOT_TOKEN"))

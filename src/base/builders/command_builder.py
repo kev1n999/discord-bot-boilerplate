@@ -25,7 +25,13 @@ class SlashCommandBuilder(app_commands.Command):
         NotImplementedError: Se a classe filha não implementar um método `callback`.
     """
     
-    def __init__(self, app: app_commands.CommandTree, *, name: str=None, description:str=None):
+    def __init__(
+        self, 
+        app: app_commands.CommandTree, 
+        *, 
+        name: str=None, 
+        description:str=None
+    ):
         self.app = app 
         
         callback = getattr(self, "callback", None)
