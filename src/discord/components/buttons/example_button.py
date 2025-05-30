@@ -2,16 +2,15 @@ import discord
 from src.base.builders.button_builder import ButtonBuilder
 from src.base.builders.component_builder import ComponentBuilder
 
-
-
+label_number = 0
+label_string = str(label_number)
+        
 async def button_listener(interaction: discord.Interaction, button: discord.ui.Button):
-    await interaction.response.send_message(
-        content="Hello!",
-        ephemeral=True 
-    )
+    button.label = str(label_string)
+    await interaction.response.edit_message(view=ComponentBuilder(button))
     
 button = ButtonBuilder(
-    label="button example",
+    label=label_string,
     color="green",
     button_listener=button_listener 
 )
