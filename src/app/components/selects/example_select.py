@@ -1,6 +1,6 @@
 import discord 
-from src.base.builders.select_builder import SelectMenuBuilder, SelectOptionBuilder
-from src.base.builders.component_builder import ComponentBuilder
+from src.core.builders.select_builder import SelectMenuBuilder, SelectOptionBuilder
+from src.core.builders.component_builder import ComponentBuilder
 
 select_options = [
     SelectOptionBuilder(label="option 1", description="this is option 1", value="option 1"),

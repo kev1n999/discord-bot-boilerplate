@@ -3,7 +3,7 @@ import discord
 import logging 
 from discord import app_commands 
 from dotenv import load_dotenv 
-from src.base.builders.command_builder import SlashCommandBuilder 
+from src.core.builders.command_builder import SlashCommandBuilder
 from pathlib import Path 
 from importlib import import_module
 
@@ -44,7 +44,7 @@ class DiscordClient(discord.Client):
         self.run(self.token)
     
     def load_commands(self):
-        root = Path("src/discord/commands")
+        root = Path("src/app/commands")
 
         for folder_path in root.iterdir():
             if not folder_path.is_dir():
@@ -54,7 +54,7 @@ class DiscordClient(discord.Client):
                 if file_path.name == "__init__.py":
                     continue
 
-                module_name = f"src.discord.commands.{folder_path.name}.{file_path.stem}"
+                module_name = f"src.app.commands.{folder_path.name}.{file_path.stem}"
 
                 try:
                     module = import_module(module_name)

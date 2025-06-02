@@ -1,6 +1,6 @@
 import discord 
-from src.base.builders.component_builder import ComponentBuilder
-from src.base.builders.modal_builder import ModalBuilder, InputTextBuilder
+from src.core.builders.component_builder import ComponentBuilder
+from src.core.builders.modal_builder import ModalBuilder, InputTextBuilder
 
 modal_fields = [
     InputTextBuilder(label="Number", placeholder="Type a number!", required=True, custom_id="sum1"),

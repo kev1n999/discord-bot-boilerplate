@@ -1,7 +1,7 @@
 import discord 
-from src.base.builders.command_builder import SlashCommandBuilder
-from src.base.builders.select_builder import SelectMenuBuilder, SelectOptionBuilder
-from src.discord.components.modals.example_modal import modalSum
+from src.core.builders.command_builder import SlashCommandBuilder
+from src.core.builders.select_builder import SelectMenuBuilder, SelectOptionBuilder
+from src.app.components.modals.example_modal import modalSum
 
 # Simple example for creating commands for the bot
 class ExampleCommandPing(SlashCommandBuilder):
