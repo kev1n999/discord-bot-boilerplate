@@ -8,7 +8,7 @@ Os comandos ficarão organizados em subpastas dentro da pasta `app/commands` do 
 
 `app/commands/example/ping.py`
 
-````python
+```python
 import discord 
 from src.core.builders.command_builder import SlashCommandBuilder
 
@@ -28,4 +28,4 @@ class ExampleCommandPing(SlashCommandBuilder):
             ephemeral=True
         )
 ```
-````
+
