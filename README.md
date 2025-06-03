@@ -35,5 +35,4 @@ class ExampleCommandPing(SlashCommandBuilder):
             content="Pong!",
             ephemeral=True
         )
-```
 ````
