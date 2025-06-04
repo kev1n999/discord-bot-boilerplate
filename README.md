@@ -1,4 +1,5 @@
-# Template for bot's with Python and discord.py
+# Template for bot's with Python and discord.py 
+(em desenvolvimento...)
 
 #### Esse projeto é uma base/ambiente que visa acelerar e abstrair o desenvolvimento de bots para discord utilizando a linguagem de programação Python e a biblioteca discord.py, de forma estruturada e organizada.
 
