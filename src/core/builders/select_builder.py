@@ -28,6 +28,8 @@ class SelectOptionBuilder(discord.SelectOption):
             emoji=emoji
         )
         
+        
+        
 class SelectMenuBuilder(discord.ui.Select):
     """
     Menu seletor (dropdown) personalizado com listener assíncrono para interações.
@@ -57,12 +59,67 @@ class SelectMenuBuilder(discord.ui.Select):
         *, 
         select_listener: Coroutine
     ):
-        self.select_listener = select_listener 
-        
         super().__init__(
             placeholder=placeholder,
             options=options
         )
+        self.select_listener = select_listener 
         
     async def callback(self, interaction: discord.Interaction):
+        await self.select_listener(interaction, select=self)
+
+
+
+class SelectUserBuilder(discord.ui.UserSelect):
+    def __init__(
+        self,
+        placeholder: str=None,
+        *, 
+        custom_id: str=None,
+        select_listener: Coroutine
+    ):
+        super().__init__(
+            custom_id=custom_id,
+            placeholder=placeholder if placeholder else "Select a member...",
+        )
+        self.select_listener = select_listener
+    
+    async def callback(self, interaction):
+        await self.select_listener(interaction, select=self)
+
+
+
+class SelectRoleBuilder(discord.ui.RoleSelect):
+    def __init__(
+        self,
+        placeholder: str=None,
+        *,
+        custom_id: str=None,
+        select_listener: Coroutine
+    ):
+        super().__init__(
+            placeholder=placeholder if placeholder else "Select a role...",
+            custom_id=custom_id,
+        )
+        self.select_listener = select_listener
+        
+    async def callback(self, interaction):
+        await self.select_listener(interaction, select=self)
+
+
+class SelectChannelBuilder(discord.ui.ChannelSelect):
+    def __init__(
+        self, 
+        placeholder: str=None,
+        *,
+        channel_types: Union[List[discord.ChannelType], str],
+        select_listener: Coroutine
+    ):
+        super().__init__(
+            placeholder=placeholder if placeholder else "Select a channel...",
+            channel_types=channel_types,
+        )
+        self.select_listener = select_listener
+        
+    async def callback(self, interaction):
         await self.select_listener(interaction, select=self)
