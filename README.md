@@ -2,7 +2,7 @@
 
 (em desenvolvimento...)
 
-#### Esse projeto é uma base/ambiente que visa acelerar e abstrair o desenvolvimento de bots para discord utilizando a linguagem de programação Python, baseado principalmente na biblioteca [discord.py](https://discordpy), de forma estruturada e organizada.
+#### Esse projeto é uma base/ambiente que visa acelerar e abstrair o desenvolvimento de bots para discord utilizando a linguagem de programação Python, baseado principalmente na biblioteca [discord.py](https://discordpy.readthedocs.io/en/stable/), de forma estruturada e organizada.
 
 ### Os builders disponíveis são:
 
