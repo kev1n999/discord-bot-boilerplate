@@ -8,18 +8,18 @@
 ### Os builders disponíveis são:
 
 
-| Builder                | Função                                                                                                               |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `CommandBuilder`       | Responsável pela criação de comandos para o bot.                                                                    |
-| `ButtonBuilder`        | Responsável pela criação de botões no Discord (Herda de discord.ui.Button).                                        |
-| `ComponentBuilder`     | Responsável por adicionar componentes (botões, modals, selects) à uma view (Herda de discord.ui.View).              |
-| `InputTextBuilder`     | Responsável pela criação de InputTexts/Fields para a modal (ModalBuilder) (Herda de discord.ui.TextInput).          |
-| `ModalBuilder`         | Responsável pela criação de modais no Discord (Herda de discord.ui.Modal).                                          |
-| `SelectOptionBuilder`  | Responsável pela criação de opções para um futuro SelectMenu (SelectMenuBuilder) (Herda de discord.SelectOption). |
-| `SelectMenuBuilder`    | Responsável pela criação de um SelectMenu no Discord (Herda de discord.ui.Select).                                  |
-| `SelectUserBuilder`    | Responsável pela criação de um SelectMenu de membros do servidor (Herda de discord.ui.UserSelect).                  |
-| `SelectRoleBuilder`    | Responsável pela criação de um SelectMenu de roles/cargos do servidor (Herda de discord.ui.RoleSelect).             |
-| `SelectChannelBuilder` | Responsável pela criação de um SelectMenu de canais do servidor (Herda de discord.ui.ChannelSelect).                |
+| Builder                | Função                                                                                                                   |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `CommandBuilder`       | **Responsável pela criação de comandos para o bot.**                                                                    |
+| `ButtonBuilder`        | **Responsável pela criação de botões no Discord (Herda de discord.ui.Button).**                                        |
+| `ComponentBuilder`     | **Responsável por adicionar componentes (botões, modals, selects) à uma view (Herda de discord.ui.View).**              |
+| `InputTextBuilder`     | **Responsável pela criação de InputTexts/Fields para a modal (ModalBuilder) (Herda de discord.ui.TextInput).**          |
+| `ModalBuilder`         | **Responsável pela criação de modais no Discord (Herda de discord.ui.Modal).**                                          |
+| `SelectOptionBuilder`  | **Responsável pela criação de opções para um futuro SelectMenu (SelectMenuBuilder) (Herda de discord.SelectOption).** |
+| `SelectMenuBuilder`    | **Responsável pela criação de um SelectMenu no Discord (Herda de discord.ui.Select).**                                  |
+| `SelectUserBuilder`    | **Responsável pela criação de um SelectMenu de membros do servidor (Herda de discord.ui.UserSelect).**                  |
+| `SelectRoleBuilder`    | **Responsável pela criação de um SelectMenu de roles/cargos do servidor (Herda de discord.ui.RoleSelect).**             |
+| `SelectChannelBuilder` | **Responsável pela criação de um SelectMenu de canais do servidor (Herda de discord.ui.ChannelSelect).**                |
 
 # Configurações essenciais
 
