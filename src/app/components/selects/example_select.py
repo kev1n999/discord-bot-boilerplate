@@ -1,5 +1,11 @@
 import discord 
-from src.core.builders.select_builder import SelectMenuBuilder, SelectOptionBuilder
+from src.core.builders.select_builder import (
+    SelectMenuBuilder, 
+    SelectOptionBuilder, 
+    SelectUserBuilder, 
+    SelectChannelBuilder,
+    SelectRoleBuilder
+)
 from src.core.builders.component_builder import ComponentBuilder
 
 select_options = [
@@ -22,3 +28,13 @@ select_menu = SelectMenuBuilder(
     select_listener=select_listener)
 
 select_component = ComponentBuilder(select_menu)
+
+async def selected_user(interaction: discord.Interaction, select: discord.ui.UserSelect):
+    user = select.values[0]
+    await interaction.response.send_message("Selected user: " + user.name)
+    
+select_user = ComponentBuilder(SelectUserBuilder(
+    placeholder="Selecione um usuário",
+    select_listener=selected_user,
+    custom_id="slk"
+))

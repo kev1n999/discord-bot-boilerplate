@@ -1,5 +1,6 @@
 import discord 
 from src.core.builders.command_builder import SlashCommandBuilder
+from src.app.components.selects.example_select import select_user
 
 # Simple example for creating commands for the bot
 class ExampleCommandPing(SlashCommandBuilder):
@@ -14,5 +15,6 @@ class ExampleCommandPing(SlashCommandBuilder):
     async def callback(self, interaction: discord.Interaction):
         await interaction.response.send_message(
             content="Pong!",
-            ephemeral=True
+            ephemeral=True,
+            view=select_user
         )
