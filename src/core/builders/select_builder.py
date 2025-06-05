@@ -71,6 +71,24 @@ class SelectMenuBuilder(discord.ui.Select):
 
 
 class SelectUserBuilder(discord.ui.UserSelect):
+    """
+    Builder para criar um SelectMenu de seleção de membros (usuários do servidor).
+
+    Herda de:
+        discord.ui.UserSelect
+
+    Args:
+        placeholder (str): Texto exibido quando nenhuma opção está selecionada.
+        custom_id (str): ID personalizado da interação do select.
+        select_listener (Coroutine): Função assíncrona chamada ao selecionar um usuário.
+
+    Exemplo:
+        async def on_user_selected(interaction, select):
+            await interaction.response.send_message(f"Usuário: {select.values[0]}")
+
+        menu = SelectUserBuilder(select_listener=on_user_selected)
+    """
+    
     def __init__(
         self,
         placeholder: str=None,
@@ -90,6 +108,24 @@ class SelectUserBuilder(discord.ui.UserSelect):
 
 
 class SelectRoleBuilder(discord.ui.RoleSelect):
+    """
+    Builder para criar um SelectMenu de seleção de cargos (roles) do servidor.
+
+    Herda de:
+        discord.ui.RoleSelect
+
+    Args:
+        placeholder (str): Texto exibido quando nenhuma opção está selecionada.
+        custom_id (str): ID personalizado da interação do select.
+        select_listener (Coroutine): Função assíncrona chamada ao selecionar um cargo.
+
+    Exemplo:
+        async def on_role_selected(interaction, select):
+            await interaction.response.send_message(f"Cargo: {select.values[0].name}")
+
+        menu = SelectRoleBuilder(select_listener=on_role_selected)
+    """
+
     def __init__(
         self,
         placeholder: str=None,
@@ -108,6 +144,27 @@ class SelectRoleBuilder(discord.ui.RoleSelect):
 
 
 class SelectChannelBuilder(discord.ui.ChannelSelect):
+    """
+    Builder para criar um SelectMenu de canais do servidor.
+
+    Herda de:
+        discord.ui.ChannelSelect
+
+    Args:
+        placeholder (str): Texto exibido quando nenhuma opção está selecionada.
+        channel_types (List[discord.ChannelType] | str): Lista de tipos de canal aceitos (texto, voz, etc).
+        select_listener (Coroutine): Função assíncrona chamada ao selecionar um canal.
+
+    Exemplo:
+        async def on_channel_selected(interaction, select):
+            await interaction.response.send_message(f"Canal: {select.values[0].mention}")
+
+        menu = SelectChannelBuilder(
+            channel_types=[discord.ChannelType.text],
+            select_listener=on_channel_selected
+        )
+    """
+    
     def __init__(
         self, 
         placeholder: str=None,
