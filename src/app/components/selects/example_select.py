@@ -1,12 +1,12 @@
 import discord 
-from src.core.builders.select_builder import (
+from core.builders.select_builder import (
     SelectMenuBuilder, 
     SelectOptionBuilder, 
     SelectUserBuilder, 
     SelectChannelBuilder,
     SelectRoleBuilder
 )
-from src.core.builders.component_builder import ComponentBuilder
+from core.builders.component_builder import ComponentBuilder
 
 select_options = [
     SelectOptionBuilder(label="option 1", description="this is option 1", value="option 1"),

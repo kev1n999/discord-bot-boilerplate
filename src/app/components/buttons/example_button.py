@@ -1,6 +1,6 @@
 import discord 
-from src.core.builders.button_builder import ButtonBuilder
-from src.core.builders.component_builder import ComponentBuilder
+from core.builders.button_builder import ButtonBuilder
+from core.builders.component_builder import ComponentBuilder
 
 label_number = 0
 label_string = str(label_number)

@@ -1,1 +1,1 @@
-from src.core.client.client import client
+from core.client.client import client

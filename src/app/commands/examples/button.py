@@ -1,6 +1,6 @@
 import discord 
-from src.app.components.buttons.example_button import buttonComponent
-from src.core.builders.command_builder import SlashCommandBuilder 
+from app.components.buttons.example_button import buttonComponent
+from core.builders.command_builder import SlashCommandBuilder
 
 class ButtonExample(SlashCommandBuilder):
     def __init__(self, tree):

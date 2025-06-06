@@ -1,6 +1,6 @@
 import discord 
-from src.core.builders.command_builder import SlashCommandBuilder
-from src.app.components.selects.example_select import select_user
+from core.builders.command_builder import SlashCommandBuilder
+from app.components.selects.example_select import select_user
 
 # Simple example for creating commands for the bot
 class ExampleCommandPing(SlashCommandBuilder):

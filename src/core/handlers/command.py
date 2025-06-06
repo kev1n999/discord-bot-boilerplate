@@ -1,11 +1,11 @@
 import logging 
 from importlib import import_module 
 from pathlib import Path 
-from src.core.builders.command_builder import SlashCommandBuilder
+from core.builders.command_builder import SlashCommandBuilder
 from discord.app_commands import CommandTree
 
 def load_commands(tree: CommandTree):
-    root = Path("src/app/commands")
+    root = Path("app/commands")
 
     for folder_path in root.iterdir():
         if not folder_path.is_dir():
@@ -15,7 +15,7 @@ def load_commands(tree: CommandTree):
             if file_path.name == "__init__.py":
                 continue
 
-            module_name = f"src.app.commands.{folder_path.name}.{file_path.stem}"
+            module_name = f"app.commands.{folder_path.name}.{file_path.stem}"
 
             try:
                 module = import_module(module_name)
