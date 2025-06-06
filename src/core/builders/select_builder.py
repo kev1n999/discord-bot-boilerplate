@@ -1,5 +1,5 @@
 import discord 
-from typing import Union, List, Coroutine
+from typing import Union, List, Callable, Awaitable
 
 class SelectOptionBuilder(discord.SelectOption):
     """
@@ -57,7 +57,7 @@ class SelectMenuBuilder(discord.ui.Select):
         placeholder: str=None, 
         options: Union[List[SelectOptionBuilder], SelectOptionBuilder]=None, 
         *, 
-        select_listener: Coroutine
+        select_listener: Callable[[discord.Interaction, discord.ui.Select], Awaitable[None]]
     ):
         super().__init__(
             placeholder=placeholder,
@@ -94,7 +94,7 @@ class SelectUserBuilder(discord.ui.UserSelect):
         placeholder: str=None,
         *, 
         custom_id: str=None,
-        select_listener: Coroutine
+        select_listener: Callable[[discord.Interaction, discord.ui.Select], Awaitable[None]]
     ):
         super().__init__(
             custom_id=custom_id,
@@ -131,7 +131,7 @@ class SelectRoleBuilder(discord.ui.RoleSelect):
         placeholder: str=None,
         *,
         custom_id: str=None,
-        select_listener: Coroutine
+        select_listener: Callable[[discord.Interaction, discord.ui.Select], Awaitable[None]]
     ):
         super().__init__(
             placeholder=placeholder if placeholder else "Select a role...",
@@ -169,8 +169,8 @@ class SelectChannelBuilder(discord.ui.ChannelSelect):
         self, 
         placeholder: str=None,
         *,
-        channel_types: Union[List[discord.ChannelType], str],
-        select_listener: Coroutine
+        channel_types: List[discord.ChannelType],
+        select_listener: Callable[[discord.Interaction, discord.ui.Select], Awaitable[None]]
     ):
         super().__init__(
             placeholder=placeholder if placeholder else "Select a channel...",

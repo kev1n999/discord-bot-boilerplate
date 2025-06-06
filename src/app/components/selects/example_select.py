@@ -38,3 +38,14 @@ select_user = ComponentBuilder(SelectUserBuilder(
     select_listener=selected_user,
     custom_id="slk"
 ))
+
+
+async def select_listener_channel(interaction: discord.Interaction, select: discord.ui.Select):
+    channel = select.values[0]
+    await interaction.response.send_message(f"Você selecionou o canal: {channel}")
+    
+select_menu_channel = ComponentBuilder(SelectChannelBuilder(
+    placeholder="Selecione um canal...",
+    channel_types=[discord.ChannelType.text, discord.ChannelType.voice],
+    select_listener=select_listener_channel
+))
