@@ -1,6 +1,7 @@
 {
   "files.exclude": {
     "**/__pycache__/": true,
-    "**/__init__.py": false
-  }
+    "**/__init__.py": false,
+  },
+  "python.envFile": "${workspaceFolder}/.env"
 }
