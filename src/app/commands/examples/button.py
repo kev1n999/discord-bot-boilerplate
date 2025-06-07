@@ -1,5 +1,5 @@
 import discord 
-from app.components.buttons.example_button import buttonComponent
+from ...components.buttons.example_button import buttonComponent
 from core.builders.command_builder import SlashCommandBuilder
 
 class ButtonExample(SlashCommandBuilder):

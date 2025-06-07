@@ -1,6 +1,6 @@
 import discord
 from core.builders.command_builder import SlashCommandBuilder
-from app.components.selects.example_select import * 
+from ...components.selects.example_select import select_menu_channel
 
 class SelectTestCommands(SlashCommandBuilder):
     def __init__(self, tree):
