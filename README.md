@@ -53,3 +53,57 @@ class ExampleCommandPing(SlashCommandBuilder):
             ephemeral=True
         )
 ````
+
+
+# Como criar e enviar componentes com comandos?
+
+Os componentes podem ser criados usando os builders e enviados junto com as respostas dos comandos. Exemplo básico:
+
+```
+
+import discord
+from core.builders.command_builder import SlashCommandBuilder
+from core.builders.button_builder import ButtonBuilder
+from core.builders.component_builder import ComponentBuilder
+
+class ExampleCommand(SlashCommandBuilder):
+    def __init__(self, tree) -> None:
+        super().__init__(
+            app=tree,
+            name="exemplo",
+            description="Exemplo de comando com componentes"
+        )
+  
+    async def callback(self, interaction: discord.Interaction) -> None:
+        # Criando um botão
+        button = ButtonBuilder(
+            label="Clique aqui!",
+            style=discord.ButtonStyle.primary,
+            custom_id="exemplo_botao"
+        )
+  
+        # Criando e enviando o botão
+        component_button = ComponentBuilder(button) # Também aceita uma lista([]) de de builders, como: [button1, button2]
+
+        await interaction.response.send_message(
+          content="Mensagem com botão",
+          view=component_button
+        )
+```
+
+### Tipos de Componentes Disponíveis:
+
+1. **Botões** (`ButtonBuilder`):
+
+   - Botões interativos com diferentes estilos
+   - Útil para ações simples
+2. **Select Menus** (`SelectMenuBuilder`):
+
+   - Menus dropdown com opções personalizadas
+   - Suporta seleção de usuários, cargos e canais
+3. **Modais** (`ModalBuilder`):
+
+   - Formulários com campos de texto
+   - Ideal para coletar informações do usuário
+
+Todos os builders estão disponíveis em `src/core/builders/` e seguem o mesmo padrão de uso.
