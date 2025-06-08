@@ -1,5 +1,4 @@
 import discord 
-from core.builders.component_builder import ComponentBuilder
 from core.builders.modal_builder import ModalBuilder, InputTextBuilder
 
 modal_fields = [
@@ -7,7 +6,7 @@ modal_fields = [
     InputTextBuilder(label="Other number", placeholder="Type another number!", required=True, custom_id="sum2")
 ]
 
-async def modal_listener(interaction: discord.Interaction):
+async def modal_listener(interaction: discord.Interaction) -> None:
     number1 = int(modal_fields[0].value)
     number2 = int(modal_fields[1].value)
     

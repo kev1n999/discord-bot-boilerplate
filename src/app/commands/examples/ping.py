@@ -1,20 +1,18 @@
 import discord 
 from core.builders.command_builder import SlashCommandBuilder
-from ...components.selects.example_select import select_user
+from ...components.buttons.example_button import button 
 
-# Simple example for creating commands for the bot
-class ExampleCommandPing(SlashCommandBuilder):
+class PingCommand(SlashCommandBuilder):
     def __init__(self, tree):
         super().__init__(
-            app=tree, # Padrão
-            name="ping", # Nome do comando
-            description="Reply with pong!", # Descrição do comando
+            app=tree,
+            name="ping",
+            description="Reply with pong!",
         )
-        
-    # Responde ao comando
+
     async def callback(self, interaction: discord.Interaction):
         await interaction.response.send_message(
             content="Pong!",
             ephemeral=True,
-            view=select_user
+            view=button
         )

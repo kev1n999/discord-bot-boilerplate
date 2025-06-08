@@ -28,7 +28,7 @@ class ComponentBuilder(discord.ui.View):
         self, 
         component: Union[List[discord.Component], discord.Component], 
         persistent: bool=None
-    ):
+    ) -> None:
         super().__init__(timeout=None if persistent else 180)
         
         if component is None:

@@ -27,7 +27,7 @@ class InputTextBuilder(discord.ui.TextInput):
         style:str | discord.TextStyle=None, 
         custom_id: str | None=None, 
         required: bool=None
-    ):
+    ) -> None:
         self.text_styles = {
             "short": discord.TextStyle.short ,
             "long": discord.TextStyle.long,
@@ -90,7 +90,7 @@ class ModalBuilder(discord.ui.Modal):
         *, 
         items: Union[List[InputTextBuilder], InputTextBuilder]=None, 
         modal_listener: Coroutine
-    ):
+    ) -> None:
         self.modal_listener = modal_listener
         
         if items is None:
@@ -112,7 +112,7 @@ class ModalBuilder(discord.ui.Modal):
         else:
             self.add_item(items)
     
-    async def on_submit(self, interaction: discord.Interaction):
+    async def on_submit(self, interaction: discord.Interaction) -> None:
         if not self.modal_listener:
             logging.error("[⚠] Você não passou nenhuma função para o paramêtro 'modal_listener'!")
             return 

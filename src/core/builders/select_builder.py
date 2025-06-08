@@ -20,7 +20,7 @@ class SelectOptionBuilder(discord.SelectOption):
         description: str=None, 
         value: str=None, 
         emoji: discord.PartialEmoji=None
-    ):
+    ) -> None:
         super().__init__(
             label=label,
             description=description,
@@ -58,14 +58,14 @@ class SelectMenuBuilder(discord.ui.Select):
         options: Union[List[SelectOptionBuilder], SelectOptionBuilder]=None, 
         *, 
         select_listener: Callable[[discord.Interaction, discord.ui.Select], Awaitable[None]]
-    ):
+    ) -> None:
         super().__init__(
             placeholder=placeholder,
             options=options
         )
         self.select_listener = select_listener 
         
-    async def callback(self, interaction: discord.Interaction):
+    async def callback(self, interaction: discord.Interaction) -> None:
         await self.select_listener(interaction, select=self)
 
 
@@ -95,14 +95,14 @@ class SelectUserBuilder(discord.ui.UserSelect):
         *, 
         custom_id: str=None,
         select_listener: Callable[[discord.Interaction, discord.ui.Select], Awaitable[None]]
-    ):
+    ) -> None:
         super().__init__(
             custom_id=custom_id,
             placeholder=placeholder if placeholder else "Select a member...",
         )
         self.select_listener = select_listener
     
-    async def callback(self, interaction):
+    async def callback(self, interaction) -> None:
         await self.select_listener(interaction, select=self)
 
 
@@ -132,14 +132,14 @@ class SelectRoleBuilder(discord.ui.RoleSelect):
         *,
         custom_id: str=None,
         select_listener: Callable[[discord.Interaction, discord.ui.Select], Awaitable[None]]
-    ):
+    ) -> None:
         super().__init__(
             placeholder=placeholder if placeholder else "Select a role...",
             custom_id=custom_id,
         )
         self.select_listener = select_listener
         
-    async def callback(self, interaction):
+    async def callback(self, interaction) -> None:
         await self.select_listener(interaction, select=self)
 
 
@@ -171,12 +171,12 @@ class SelectChannelBuilder(discord.ui.ChannelSelect):
         *,
         channel_types: List[discord.ChannelType],
         select_listener: Callable[[discord.Interaction, discord.ui.Select], Awaitable[None]]
-    ):
+    ) -> None:
         super().__init__(
             placeholder=placeholder if placeholder else "Select a channel...",
             channel_types=channel_types,
         )
         self.select_listener = select_listener
         
-    async def callback(self, interaction):
+    async def callback(self, interaction) -> None:
         await self.select_listener(interaction, select=self)

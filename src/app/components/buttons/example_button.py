@@ -2,17 +2,15 @@ import discord
 from core.builders.button_builder import ButtonBuilder
 from core.builders.component_builder import ComponentBuilder
 
-label_number = 0
-label_string = str(label_number)
-        
-async def button_listener(interaction: discord.Interaction, button: discord.ui.Button):
-    button.label = str(label_string)
-    await interaction.response.edit_message(view=ComponentBuilder(button))
-    
-button = ButtonBuilder(
-    label=label_string,
-    color="green",
-    button_listener=button_listener 
-)
+num = 0
 
-buttonComponent = ComponentBuilder(button)
+async def counter(interaction: discord.Interaction, button: discord.ui.Button) -> None:
+    global num 
+    num += 1
+    button.label = str(num)
+    await interaction.response.edit_message(view=ComponentBuilder(button))
+
+button = ComponentBuilder(ButtonBuilder(
+    label=str(num),
+    button_listener=counter 
+))

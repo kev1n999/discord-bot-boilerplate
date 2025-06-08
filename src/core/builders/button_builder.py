@@ -32,7 +32,7 @@ class ButtonBuilder(discord.ui.Button):
         custom_id: str=None,
         *, 
         button_listener: Coroutine
-    ):
+    ) -> None:
         self.button_listener = button_listener
         self.colors = {
             "blurple": discord.ButtonStyle.blurple,
@@ -61,5 +61,5 @@ class ButtonBuilder(discord.ui.Button):
             custom_id=custom_id
         )
         
-    async def callback(self, interaction):
+    async def callback(self, interaction) -> None:
         await self.button_listener(interaction, self)

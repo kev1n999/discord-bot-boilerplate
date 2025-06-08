@@ -31,7 +31,7 @@ class SlashCommandBuilder(app_commands.Command):
         *, 
         name: str=None, 
         description:str=None
-    ):
+    ) -> None: 
         self.app = app 
         
         callback = getattr(self, "callback", None)
