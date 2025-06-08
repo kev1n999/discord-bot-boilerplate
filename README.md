@@ -59,7 +59,7 @@ class ExampleCommandPing(SlashCommandBuilder):
 
 Os componentes podem ser criados usando os builders e enviados junto com as respostas dos comandos. Exemplo básico:
 
-```
+```python
 
 import discord
 from core.builders.command_builder import SlashCommandBuilder
