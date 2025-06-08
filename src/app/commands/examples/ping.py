@@ -3,7 +3,7 @@ from core.builders.command_builder import SlashCommandBuilder
 from ...components.buttons.example_button import button 
 
 class PingCommand(SlashCommandBuilder):
-    def __init__(self, tree):
+    def __init__(self, tree) -> None:
         super().__init__(
             app=tree,
             name="ping",
