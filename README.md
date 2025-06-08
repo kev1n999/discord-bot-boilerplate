@@ -105,5 +105,6 @@ class ExampleCommand(SlashCommandBuilder):
 
    - Formulários com campos de texto
    - Ideal para coletar informações do usuário
+   - **Dica:** `ModalBuilder não deve ser adicionado à um ComponentBuilder, envie modais a partir de:  interaction.response.send_modal(modal)`
 
 Todos os builders estão disponíveis em `src/core/builders/` e seguem o mesmo padrão de uso.
