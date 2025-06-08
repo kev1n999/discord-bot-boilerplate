@@ -22,7 +22,7 @@
 
 # ⚙- Configurações essenciais
 
-* Armazene o token do seu bot no arquivo .env, dessa forma:
+* Crie um arquivo .env na raíz do projeto e armazene o token do seu bot nele, dessa forma:
   ````
   BOT_TOKEN=insira o token do bot aqui
   ````
