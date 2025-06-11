@@ -73,7 +73,7 @@ Os comandos ficarão organizados em subpastas dentro da pasta `app/commands` do 
 
 ````python
 import discord 
-from src.core.builders.command_builder import SlashCommandBuilder
+from core.builders.command_builder import SlashCommandBuilder
 
 # Simple example for creating commands for the bot
 class ExampleCommandPing(SlashCommandBuilder):
