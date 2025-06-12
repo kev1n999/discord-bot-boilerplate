@@ -77,7 +77,7 @@ from core.builders.command_builder import SlashCommandBuilder
 
 # Simple example for creating commands for the bot
 class ExampleCommandPing(SlashCommandBuilder):
-    def __init__(self, tree):
+    def __init__(self, tree) -> None: 
         super().__init__(
             app=tree, # Padrão
             name="ping", # Nome do comando
@@ -85,7 +85,7 @@ class ExampleCommandPing(SlashCommandBuilder):
         )
   
     # Responde ao comando
-    async def callback(self, interaction: discord.Interaction):
+    async def callback(self, interaction: discord.Interaction) -> None:
         await interaction.response.send_message(
             content="Pong!",
             ephemeral=True
