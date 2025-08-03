@@ -14,7 +14,7 @@ def load_commands(tree: CommandTree):
     Args:
         tree (CommandTree): Árvore de comandos do Discord onde os comandos serão registrados.
     """
-    root = Path("app/commands")
+    root = Path(__file__).resolve().parents[3] / "app" / "commands"
     logger.info("Iniciando carregamento de comandos...")
 
     for folder_path in root.iterdir():

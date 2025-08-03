@@ -54,7 +54,6 @@ DiscordBotBase:
 
 ## 🛠 - Components
 
-
 * Nesta pasta ficarão armazenados os componentes desenvolvidos, que serão dividos preferencialmente em subpastas categóricas como: `selects, buttons, modals`. Aqui ficará apenas a criação de componentes e a lógica de cada um deles, que futuramente podem ser importados no arquivo/código de um comando específico para serem utilizados.
 * Como desenvolver?
   Defina uma categoria/subpasta(selects, buttons, modals):
